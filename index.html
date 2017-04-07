@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+		body {
+			font-family: 'Roboto', sans-serif;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			background: #009688;
+			transition: background 500ms ease-in-out;
+
+		}
+		h1{
+			font-size: 10em;
+			color: #FFFFFF;
+			font-weight: 100;
+
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>00:00:00</h1>
+
+	<script>
+		class Main {
+			constructor() {
+				this.interval();
+
+			}
+			interval() {
+				setInterval(this.init, 1000);
+			}
+			init() {
+				let d = new Date();
+				let hour = ("0" + d.getHours()).slice(-2);
+				let minute = ("0" + d.getMinutes()).slice(-2);
+				let second = ("0" + d.getSeconds()).slice(-2);
+				
+
+				document.body.style.backgroundColor = "#" + hour + minute + second;
+				
+				document.querySelector("h1").innerHTML = hour + ':' + minute + ':' + second;
+				
+				return hour + minute + second;
+				
+			}
+		}
+		var main = new Main;
+	</script>
+</body>
+</html>
